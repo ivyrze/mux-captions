@@ -3,7 +3,7 @@
 import type { NextPage } from 'next';
 import VideoPicker from "@/components/VideoPicker";
 
-export const HomePage : NextPage = props => {
+const HomePage : NextPage = props => {
 	return (
 		<main>
 			<VideoPicker />

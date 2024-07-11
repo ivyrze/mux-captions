@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Mux Captions"
 };
 
-export const RootLayout = (props: PropsWithChildren) => {
+const RootLayout = (props: PropsWithChildren) => {
     const { children } = props;
 
     return (

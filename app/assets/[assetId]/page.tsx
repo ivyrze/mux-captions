@@ -3,13 +3,13 @@
 import VideoDetails from '@/components/VideoDetails';
 import type { NextPage } from 'next';
 
-interface PageProps {
+interface Props {
 	params: {
 		assetId: string
 	}
 }
 
-export const AssetPage : NextPage<PageProps> = props => {
+const AssetPage : NextPage<Props> = props => {
 	const { params } = props;
 
 	return (
