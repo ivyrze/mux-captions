@@ -56,7 +56,11 @@ export const VideoDetails = (props: Props) => {
             <h2>Tracks</h2>
             <Accordion allowMultiple={ true }>
                 { video?.tracks?.map(track => (
-                    <TrackDetails track={ track } key={ track.id } />
+                    <TrackDetails
+                        key={ track.id }
+                        assetId={ assetId }
+                        track={ track }
+                    />
                 )) }
             </Accordion>
             <CreateAction assetId={ assetId } />
