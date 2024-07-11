@@ -6,7 +6,7 @@ import { PiCalendar, PiClock, PiCrop, PiFile, PiFileVideo, PiResize, PiTimer } f
 import { DurationFormat } from '@formatjs/intl-durationformat';
 import VideoThumbnail from "./VideoThumbnail";
 import TrackDetails from "./TrackDetails";
-import CreateAction from "./CreateAction";
+import UploadAction from "./UploadAction";
 
 interface Props {
     assetId: string
@@ -63,7 +63,7 @@ export const VideoDetails = (props: Props) => {
                     />
                 )) }
             </Accordion>
-            <CreateAction assetId={ assetId } />
+            <UploadAction assetId={ assetId } />
         </>
     );
 };
