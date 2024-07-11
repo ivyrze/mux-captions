@@ -20,8 +20,12 @@ export const DeleteAction = (props: Props) => {
     }, []);
 
     return (
-        <Button onClick={ deleteTrack } colorScheme="red">
-            Delete <PiTrash />
+        <Button
+            onClick={ deleteTrack }
+            rightIcon={ <PiTrash /> }
+            colorScheme="red"
+        >
+            Delete
         </Button>
     );
 };

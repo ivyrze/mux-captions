@@ -33,8 +33,8 @@ export const VideoPreview = (props: Props) => {
             </div>
             <div>
                 <Link href={ `/assets/${ video.id }` } passHref legacyBehavior>
-                    <Button as="a">
-                        <PiPencil /> Details
+                    <Button as="a" rightIcon={ <PiPencil /> }>
+                        Details
                     </Button>
                 </Link>
             </div>

@@ -25,8 +25,11 @@ export const UploadAction = (props: Props) => {
 
     return (
         <>
-            <Button onClick={ onOpen }>
-                Upload <PiUpload />
+            <Button
+                onClick={ onOpen }
+                rightIcon={ <PiUpload /> }
+            >
+                Upload
             </Button>
             <Modal
                 isOpen={ isOpen }

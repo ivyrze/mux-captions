@@ -15,8 +15,8 @@ export const DownloadAction = (props: Props) => {
 
     return (
         <Link href={ trackUrl } target="_blank" legacyBehavior>
-            <Button as="a">
-                Download <PiDownload />
+            <Button as="a" rightIcon={ <PiDownload /> }>
+                Download
             </Button>
         </Link>
     );
