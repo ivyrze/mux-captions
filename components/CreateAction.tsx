@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader, ModalContent, ModalOverlay, Button, useDisclosure } from "@chakra-ui/react";
 import { PiUpload } from "react-icons/pi";
 import FileDropzone from "./FileDropzone";
+import { fetchAuthorized } from "@/app/util";
 
 interface Props {
     assetId: string
@@ -16,7 +17,7 @@ export const UploadAction = (props: Props) => {
         const formData = new FormData();
         formData.append('file', file);
 
-        fetch(`/api/assets/${ assetId }/tracks`, {
+        fetchAuthorized(`/api/assets/${ assetId }/tracks`, {
             method: 'POST',
             body: formData
         });

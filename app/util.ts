@@ -22,13 +22,17 @@ export const fetchMux = async (
     );
 };
 
-export const swrFetcher = (url: string | URL) => {
+export const fetchAuthorized = (url: string | URL, options: RequestInit = {}) => {
     const tokenId = localStorage.getItem('tokenId');
     const tokenSecret = localStorage.getItem('tokenSecret');
 
     return fetch(url, {
         headers: {
             'Authorization': 'Basic ' + btoa(tokenId + ":" + tokenSecret)
-        }
-    }).then(res => res.json());
+        },
+        ...options
+    });
 };
+
+export const swrFetcher = (url: string | URL) =>
+    fetchAuthorized(url).then(res => res.json());
