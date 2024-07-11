@@ -1,5 +1,5 @@
 import type Mux from '@mux/mux-node';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { Button } from '@chakra-ui/react';
 import { DurationFormat } from '@formatjs/intl-durationformat';
 import VideoThumbnail from './VideoThumbnail';
@@ -11,8 +11,6 @@ interface Props {
 
 export const VideoPreview = (props: Props) => {
     const { video } = props;
-
-    const router = useRouter();
 
     const durationFormatter = new DurationFormat('en-US', {
         style: 'digital'
@@ -34,9 +32,11 @@ export const VideoPreview = (props: Props) => {
                 <span><PiCalendar /> { createdAtFormatted }</span>
             </div>
             <div>
-                <Button onClick={ () => router.push(`/assets/${ video.id }`) }>
-                    <PiPencil /> Details
-                </Button>
+                <Link href={ `/assets/${ video.id }` } passHref legacyBehavior>
+                    <Button as="a">
+                        <PiPencil /> Details
+                    </Button>
+                </Link>
             </div>
         </div>
     );
