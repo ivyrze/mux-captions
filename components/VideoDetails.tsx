@@ -27,7 +27,7 @@ export const VideoDetails = (props: Props) => {
     }
 
     const video = response.data;
-    const playbackId = video.playback_ids?.[0].id;
+    const playbackId = video.playback_ids?.[0].id ?? '';
 
     const durationFormatter = new DurationFormat('en-US', {
         style: 'digital'
@@ -58,6 +58,7 @@ export const VideoDetails = (props: Props) => {
                 { video?.tracks?.map(track => (
                     <TrackDetails
                         key={ track.id }
+                        playbackId={ playbackId }
                         assetId={ assetId }
                         track={ track }
                     />
