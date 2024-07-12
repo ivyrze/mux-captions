@@ -1,0 +1,24 @@
+.video-details__heading {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-block: 1.75rem 0.75rem;
+}
+
+.video-details__metadata {
+    list-style: none;
+}
+
+.video-details__metadata > li {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.video-details__metadata-label {
+    font-weight: 500;
+    margin-left: 0.25em;
+}
+
+.video-details__tracks {
+    margin-bottom: 1.5rem;
+}

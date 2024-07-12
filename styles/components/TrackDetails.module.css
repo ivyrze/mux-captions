@@ -1,0 +1,10 @@
+.track-details__disclosure {
+    display: flex;
+    justify-content: space-between;
+}
+
+.track-details__type {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}

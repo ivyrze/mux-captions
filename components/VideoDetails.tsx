@@ -7,6 +7,7 @@ import { DurationFormat } from '@formatjs/intl-durationformat';
 import VideoThumbnail from "./VideoThumbnail";
 import TrackDetails from "./TrackDetails";
 import UploadAction from "./UploadAction";
+import styles from "../styles/components/VideoDetails.module.css";
 
 interface Props {
     assetId: string
@@ -42,19 +43,68 @@ export const VideoDetails = (props: Props) => {
         <>
             <VideoThumbnail playbackId={ playbackId } />
 
-            <h2>Metadata</h2>
-            <div>
-                <div><PiFile /> Asset ID: { assetId }</div>
-                <div><PiFileVideo /> Playback ID: { playbackId }</div>
-                <div><PiClock /> Duration: { durationFormatted }</div>
-                <div><PiResize /> Max Resolution: { video.max_resolution_tier }</div>
-                <div><PiTimer /> Frame Rate: { video.max_stored_frame_rate }</div>
-                <div><PiCrop /> Aspect Ratio: { video.aspect_ratio }</div>
-                <div><PiCalendar /> Uploaded On: { createdAtFormatted }</div>
-            </div>
+            <h2 className={ styles['video-details__heading'] }>
+                Metadata
+            </h2>
+            <ul className={ styles['video-details__metadata'] }>
+                <li>
+                    <PiFile />
+                    <span className={ styles['video-details__metadata-label'] }>
+                        Asset ID:
+                    </span>
+                    { assetId }
+                </li>
+                <li>
+                    <PiFileVideo />
+                    <span className={ styles['video-details__metadata-label'] }>
+                        Playback ID:
+                    </span>
+                    { playbackId }
+                </li>
+                <li>
+                    <PiClock />
+                    <span className={ styles['video-details__metadata-label'] }>
+                        Duration:
+                    </span>
+                    { durationFormatted }
+                </li>
+                <li>
+                    <PiResize />
+                    <span className={ styles['video-details__metadata-label'] }>
+                        Max Resolution:
+                    </span>
+                    { video.max_resolution_tier }
+                </li>
+                <li>
+                    <PiTimer />
+                    <span className={ styles['video-details__metadata-label'] }>
+                        Frame Rate:
+                    </span>
+                    { video.max_stored_frame_rate }
+                </li>
+                <li>
+                    <PiCrop />
+                    <span className={ styles['video-details__metadata-label'] }>
+                        Aspect Ratio:
+                    </span>
+                    { video.aspect_ratio }
+                </li>
+                <li>
+                    <PiCalendar />
+                    <span className={ styles['video-details__metadata-label'] }>
+                        Uploaded On:
+                    </span>
+                    { createdAtFormatted }
+                </li>
+            </ul>
 
-            <h2>Tracks</h2>
-            <Accordion allowMultiple={ true }>
+            <h2 className={ styles['video-details__heading'] }>
+                Tracks
+            </h2>
+            <Accordion
+                className={ styles['video-details__tracks'] }
+                allowMultiple={ true }
+            >
                 { video?.tracks?.map(track => (
                     <TrackDetails
                         key={ track.id }
