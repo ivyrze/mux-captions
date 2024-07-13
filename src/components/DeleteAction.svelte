@@ -25,6 +25,7 @@
 </script>
 
 <Button
+    class="with-icon"
     on:click={ deleteTrack }
     disabled={ isDeleted }
     color="red"
