@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SettingsDialog from "@/components/SettingsDialog.svelte";
+    import Navigation from "@/components/Navigation.svelte";
     import "@/global.css";
 </script>
 
@@ -7,7 +7,7 @@
     <title>Mux Captions</title>
 </svelte:head>
 <header>
-    <SettingsDialog />
+    <Navigation />
 </header>
 <main>
     <slot />

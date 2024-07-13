@@ -21,6 +21,7 @@
 </script>
   
 <Button
+    class="settings-dialog__disclosure"
     on:click={ () => { isOpen = true } }
     color="none"
 >
@@ -62,6 +63,10 @@
     </svelte:fragment>
 </Modal>
 <style>
+    :global(.settings-dialog__disclosure) {
+        padding: 0.5em !important;
+    }
+
     .settings-dialog__form {
         margin-block: 0.75rem !important;
     }

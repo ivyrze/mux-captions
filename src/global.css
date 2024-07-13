@@ -7,9 +7,9 @@ html {
 }
 
 main {
-    max-width: 820px;
+    max-width: 770px;
     margin-inline: auto;
-    padding-block: 4rem 6rem;
+    padding-block: 6rem;
 }
 
 img {
