@@ -17,6 +17,7 @@ img {
 }
 
 label {
+    display: block;
     font-weight: 500;
 }
 

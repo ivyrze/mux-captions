@@ -3,6 +3,7 @@ import { fetchMux } from "@/lib/api.server";
 import { put, list, del } from "@vercel/blob";
 import type { ListBlobResult } from "@vercel/blob";
 import { BLOB_READ_WRITE_TOKEN } from "$env/static/private";
+import iso6391 from 'iso-639-1';
 
 export const POST : RequestHandler = async event => {
     const { assetId } = event.params;
@@ -10,8 +11,11 @@ export const POST : RequestHandler = async event => {
     const formData = await event.request.formData();
     const file = formData.get('file') as File | null;
 
-    if (!file) {
-        return new Response('No file was uploaded', { status: 400 });
+    const localeCode = formData.get('locale') as string | null;
+    const localeName = iso6391.getName(localeCode!);
+    
+    if (!file || !localeCode || !localeName) {
+        return new Response('Missing required parameters', { status: 400 });
     }
 
     const blob = await put(crypto.randomUUID(), file, {
@@ -30,9 +34,9 @@ export const POST : RequestHandler = async event => {
                 "type": "text",
                 "text_type": "subtitles",
                 "closed_captions": true,
-                "language_code": "en-US",
-                "name": "English",
-                "passthrough": "English"
+                "language_code": localeCode,
+                "name": localeName,
+                "passthrough": localeName
             })
         }
     );
