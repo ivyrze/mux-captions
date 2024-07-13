@@ -34,7 +34,7 @@
         { /if }
     </span>
     <code>
-        { JSON.stringify(track) }
+        <pre>{ JSON.stringify(track, null, 4) }</pre>
     </code>
     { #if isDownloadable && track.id }
         <DownloadAction
