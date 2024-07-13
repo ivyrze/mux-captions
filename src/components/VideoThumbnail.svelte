@@ -6,3 +6,10 @@
 </script>
 
 <img src={ animatedSrc } alt="" />
+<style>
+    img {
+        aspect-ratio: 16 / 9;
+        object-fit: fill;
+        border-radius: 0.5rem;
+    }
+</style>

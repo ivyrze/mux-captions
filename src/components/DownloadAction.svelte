@@ -9,6 +9,11 @@
         `https://stream.mux.com/${ playbackId }/text/${ trackId }.vtt`;
 </script>
 
-<Button href={ trackUrl }>
-    Download<Download />
+<Button
+    class="with-icon"
+    href={ trackUrl }
+    role="link"
+>
+    Download
+    <Download />
 </Button>

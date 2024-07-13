@@ -8,23 +8,31 @@
     const previousPage = () => { page = Math.min(1, page + 1); };
     const nextPage = () => { page++; };
 
-    $: pages = [
-        { name: page.toString() }
-    ];
+    $: pages = Array(page).fill(0).map((_, index) => ({
+        name: (++index).toString(), active: index == page
+    }));
 </script>
 
-<Pagination
-    pages={ pages }
-    on:previous={ previousPage }
-    on:next={ nextPage }
-    icon
->
-    <svelte:fragment slot="prev">
-        <span class="sr-only">Previous</span>
-        <CaretLeft />
-    </svelte:fragment>
-    <svelte:fragment slot="next">
-        <span class="sr-only">Next</span>
-        <CaretRight />
-    </svelte:fragment>
-</Pagination>
+<div class="pagination">
+    <Pagination
+        pages={ pages }
+        on:previous={ previousPage }
+        on:next={ nextPage }
+        icon
+    >
+        <svelte:fragment slot="prev">
+            <span class="sr-only">Previous</span>
+            <CaretLeft />
+        </svelte:fragment>
+        <svelte:fragment slot="next">
+            <span class="sr-only">Next</span>
+            <CaretRight />
+        </svelte:fragment>
+    </Pagination>
+</div>
+<style>
+    .pagination {
+        text-align: center;
+        margin-top: 3rem;
+    }
+</style>

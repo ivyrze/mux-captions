@@ -9,8 +9,19 @@ html {
 main {
     max-width: 820px;
     margin-inline: auto;
+    padding-block: 4rem 6rem;
+}
+
+img {
+    width: 100%;
 }
 
 label {
     font-weight: 500;
+}
+
+.with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
 }

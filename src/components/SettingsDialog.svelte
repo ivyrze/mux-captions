@@ -20,7 +20,10 @@
     };
 </script>
   
-<Button on:click={ () => { isOpen = true } }>
+<Button
+    on:click={ () => { isOpen = true } }
+    color="none"
+>
     <Gear />
 </Button>
 <Modal

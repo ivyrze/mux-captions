@@ -5,7 +5,7 @@
     import VideoPicker from "@/components/VideoPicker.svelte";
     import Pagination from '@/components/Pagination.svelte';
 
-    let page: number;
+    let page = 1;
     
     const fetcher = async (page: number) => {
         const params = new URLSearchParams();
@@ -19,8 +19,18 @@
 </script>
 
 { #await responsePromise }
-    <Spinner />
+    <div class="spinner-container">
+        <Spinner />
+    </div>
 { :then response }
     <VideoPicker videos={ response.data } />
+    <Pagination bind:page />
 { /await }
-<Pagination bind:page />
+<style>
+    .spinner-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 25vh;
+    }
+</style>

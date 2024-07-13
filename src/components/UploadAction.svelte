@@ -30,8 +30,12 @@
     };
 </script>
 
-<Button on:click={ () => { isOpen = true } }>
-    Upload <Upload />
+<Button
+    class="with-icon"
+    on:click={ () => { isOpen = true } }
+>
+    Upload
+    <Upload />
 </Button>
 <Modal
     title="Upload"

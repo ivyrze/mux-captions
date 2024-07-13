@@ -19,18 +19,68 @@
     const createdAtFormatted = createdAt.toISOString().substring(0, 10);
 </script>
 
-<div>
+<div
+    class="video-preview"
+    role="group"
+    aria-labelledby={ `video-preview-${ video.id }__name` }
+>
     <VideoThumbnail playbackId={ video.playback_ids?.[0].id } />
-    <div>
+    <div
+        class="video-preview__name"
+        id={ `video-preview-${ video.id }__name` }
+    >
         { video.id }
     </div>
-    <div>
-        <span><Clock /> { durationFormatted }</span>
-        <span><Calendar /> { createdAtFormatted }</span>
+    <div class="video-preview__metadata">
+        <span class="with-icon">
+            <Clock />{ durationFormatted }
+        </span>
+        <span class="with-icon">
+            <Calendar />{ createdAtFormatted }
+        </span>
     </div>
     <div>
-        <Button href={ `/assets/${ video.id }` }>
-            Details <Pencil />
+        <Button
+            href={ `/assets/${ video.id }` }
+            class="with-icon"
+            color="alternative"
+            role="link"
+        >
+            Details
+            <Pencil />
         </Button>
     </div>
 </div>
+<style lang="postcss">
+    .video-preview {
+        border: 1px solid theme(colors.primary.200);
+        border-radius: 0.75rem;
+        padding: 0.5rem;
+    }
+
+    :global(.video-preview img) {
+        margin-bottom: 0.75rem;
+    }
+
+    .video-preview__name {
+        font-weight: 500;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .video-preview__metadata {
+        display: flex;
+        gap: 0.75em;
+        margin-block: 0.25rem;
+    }
+
+    Button {
+        background: red;
+    }
+
+    :global(.video-preview a) {
+        width: 100%;
+        margin-top: 0.75rem;
+    }
+</style>
