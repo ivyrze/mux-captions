@@ -11,7 +11,7 @@ npm install
 vercel env pull .env.local
 ```
 
-To start the Next.js server locally, you can use:
+To start the SvelteKit server locally, you can use:
 
 ```
 npm run dev

@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    color-scheme: light dark;
+}
+
+main {
+    max-width: 820px;
+    margin-inline: auto;
+}
+
+label {
+    font-weight: 500;
+}
