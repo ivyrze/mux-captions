@@ -13,6 +13,7 @@
     :global(.navbar) {
         position: fixed;
         border-bottom: 1px solid theme(colors.primary.200);
+        z-index: 39;
     }
 
     :global(.navbar__title) {

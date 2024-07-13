@@ -13,6 +13,7 @@
     import Timer from "phosphor-svelte/lib/Timer";
     import Crop from "phosphor-svelte/lib/Crop";
     import Calendar from "phosphor-svelte/lib/Calendar";
+    import "@mux/mux-player";
 
     export let video : Mux.Video.Asset;
     const playbackId = video.playback_ids?.[0].id ?? '';
@@ -28,7 +29,7 @@
 </script>
 
 <div>
-    <VideoThumbnail playbackId={ playbackId } />
+    <mux-player { playbackId }></mux-player>
 
     <h2 class="video-details__heading">
         Metadata
@@ -104,6 +105,11 @@
     <UploadAction assetId={ video.id } />
 </div>
 <style>
+    :global(mux-player) {
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
     .video-details__heading {
         font-size: 1.25rem;
         font-weight: bold;
