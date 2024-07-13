@@ -1,5 +1,6 @@
 <script lang="ts">
     import Navigation from "@/components/Navigation.svelte";
+    import AuthorizationInfo from "@/components/AuthorizationInfo.svelte";
     import "@/global.css";
 </script>
 
@@ -10,5 +11,7 @@
     <Navigation />
 </header>
 <main>
-    <slot />
+    <AuthorizationInfo>
+        <slot />
+    </AuthorizationInfo>
 </main>

@@ -28,9 +28,7 @@
 { /await }
 <style>
     .spinner-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        text-align: center;
         min-height: 25vh;
     }
 </style>
