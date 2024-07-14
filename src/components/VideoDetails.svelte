@@ -5,7 +5,7 @@
     import TrackDetails from "@/components/TrackDetails.svelte";
     import UploadAction from "@/components/UploadAction.svelte";
     import { Accordion } from "flowbite-svelte";
-    import { DurationFormat } from "@formatjs/intl-durationformat";
+    import { formatDuration } from "@/lib/util";
     import File from "phosphor-svelte/lib/File";
     import FileVideo from "phosphor-svelte/lib/FileVideo";
     import Clock from "phosphor-svelte/lib/Clock";
@@ -18,12 +18,7 @@
     export let video : Mux.Video.Asset;
     const playbackId = video.playback_ids?.[0].id ?? '';
 
-    const durationFormatter = new DurationFormat('en-US', {
-        style: 'digital'
-    });
-    const durationFormatted = durationFormatter.format({
-        seconds: Math.floor(video.duration ?? 0)
-    });
+    const durationFormatted = formatDuration(video.duration);
     const createdAt = new Date(parseInt(video.created_at ?? '0') * 1000);
     const createdAtFormatted = createdAt.toLocaleString();
 </script>

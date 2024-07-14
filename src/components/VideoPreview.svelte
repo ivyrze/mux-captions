@@ -1,6 +1,6 @@
 <script lang="ts">
     import type Mux from "@mux/mux-node";
-    import { DurationFormat } from '@formatjs/intl-durationformat';
+    import { formatDuration } from "@/lib/util";
     import { Button } from "flowbite-svelte";
     import VideoThumbnail from "@/components/VideoThumbnail.svelte";
     import Clock from "phosphor-svelte/lib/Clock";
@@ -9,12 +9,7 @@
 
     export let video: Mux.Video.Asset;
 
-    const durationFormatter = new DurationFormat('en-US', {
-        style: 'digital'
-    });
-    const durationFormatted = durationFormatter.format({
-        seconds: Math.floor(video.duration ?? 0)
-    });
+    const durationFormatted = formatDuration(video.duration);
     const createdAt = new Date(parseInt(video.created_at) * 1000);
     const createdAtFormatted = createdAt.toISOString().substring(0, 10);
 </script>
