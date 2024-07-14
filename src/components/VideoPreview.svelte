@@ -70,10 +70,6 @@
         margin-block: 0.25rem;
     }
 
-    Button {
-        background: red;
-    }
-
     :global(.video-preview a) {
         width: 100%;
         margin-top: 0.75rem;

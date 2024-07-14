@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Mux from '@mux/mux-node';
+    import type Mux from '@mux/mux-node';
     import { Spinner } from 'flowbite-svelte';
     import { fetchAuthorized } from '@/lib/api';
     import VideoPicker from "@/components/VideoPicker.svelte";
