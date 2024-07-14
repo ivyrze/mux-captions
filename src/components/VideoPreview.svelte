@@ -53,7 +53,7 @@
 </div>
 <style lang="postcss">
     .video-preview {
-        border: 1px solid theme(colors.primary.200);
+        border: 1px solid light-dark(theme(colors.gray.200), theme(colors.primary.700));
         border-radius: 0.75rem;
         padding: 0.5rem;
     }
