@@ -9,7 +9,7 @@
 <style>
     img {
         aspect-ratio: 16 / 9;
-        object-fit: fill;
+        object-fit: cover;
         border-radius: 0.5rem;
     }
 </style>
